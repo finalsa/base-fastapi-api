@@ -1,4 +1,4 @@
-# Lapi-API
+# Base-fastapi-API
 
 The api arquitecture is based on the good practices for Fast-API by @tialongo, for more information check https://fastapi.tiangolo.com
 ## API Reference
