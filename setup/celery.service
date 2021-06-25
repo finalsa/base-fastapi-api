@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve MyApp
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/var/www/app/app/app
+Environment="PATH=/var/www/app/venv/bin"
+ExecStart=/var/www/app/venv/bin/celery -A celery_app worker -B -l info 
+
+[Install]
+WantedBy=multi-user.target
