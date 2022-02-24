@@ -1,17 +1,21 @@
 version: "3.9"
 services:
   app:
-    build: . 
-    container_name: plant-classifier-server
+    image: "${docker_repository}/base-api:latest"
+    container_name: base-api
     restart: on-failure
     ports: [ "80:80" ]
     logging:
-      options:
-        max-size: 10m
-        max-file: "3"
+        driver: awslogs
+        options:
+            awslogs-region: "us-east-1"
+            awslogs-group: "base-api"
+            awslogs-create-group: "true"
     environment: 
       PORT: 80
-      DB_URL: "postgresql://postgres:SaSqlJ-08@database/plants"
+      ENV: "prod"
+      AWS_DEFAULT_REGION: "us-east-1"
+      DB_URL: "postgresql://postgres:postgres@database/base_api"
     links:
       - "postgres:database"
 
@@ -20,8 +24,8 @@ services:
     restart: always
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=plants
-      - POSTGRES_PASSWORD=SaSqlJ-08
+      - POSTGRES_DB=base_api
+      - POSTGRES_PASSWORD=postgres
     logging:
       options:
         max-size: 10m

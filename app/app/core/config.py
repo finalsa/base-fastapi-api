@@ -1,14 +1,13 @@
 from utils import env_path
-from pydantic import BaseSettings
+from fastapi_helpers import DefaultSettings
+from typing import Optional
 
 
-class Settings(BaseSettings):
-    sql_user: str
-    sql_host: str
-    sql_password: str
-    sql_db: str
-    root_path: str = ''
-    celery_broker: str = 'redis://localhost:6379/0'
+class Settings(DefaultSettings):
+    app_name = "changelog_bot"
+    db_url: str
+    port:Optional[str] = "80"
+    version:str = "1.0.0"
 
 
 settings = Settings(env_path)

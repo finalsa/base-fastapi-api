@@ -1,5 +1,5 @@
 from models import User
-from .utils import BaseCrud
+from fastapi_helpers import BaseCrud
 
 
 class UserCrud(BaseCrud):

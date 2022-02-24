@@ -1,5 +1,6 @@
-from db.seeders import dependencies, dev_dependencies
 
+dependencies = []
+dev_dependencies = []
 
 async def db_fill():
     errors = []
@@ -8,7 +9,10 @@ async def db_fill():
             try:
                 await d()
             except Exception as exx:
-                errors.append(exx)
+                errors.append({
+                    'error': exx,
+                    'obj' : d.__name__                    
+                })
         for d in dev_dependencies:
             await d()
         return str(errors)

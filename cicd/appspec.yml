@@ -1,0 +1,19 @@
+version: 0.0
+
+os: linux
+files:
+  - source: docker-compose.yml
+    destination: /home/ec2-user/
+
+hooks:
+  BeforeInstall:
+    - location: Scripts/before_install.sh
+      runas: root
+
+  AfterInstall:
+    - location: Scripts/after_install.sh
+      runas: root
+
+  ApplicationStart:
+    - location: Scripts/app_start.sh
+      runas: root

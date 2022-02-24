@@ -5,6 +5,8 @@ from sqlalchemy import create_engine
 from alembic import context
 import sys, os
 
+
+
 # add app folder to system path (alternative is running it from parent folder with python -m ...)
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../app/')
@@ -20,15 +22,18 @@ fileConfig(config.config_file_name)
 # add your model's MetaData object here (the one used in ormar)
 # for 'autogenerate' support
 
-from models import metadata
-from db.config import db_url
+from core.config import settings
+from models import db_config
+import logging.config
+from fastapi_helpers import get_logger_default_config
 
-target_metadata = metadata
+logging.config.dictConfig(get_logger_default_config(settings))
 
+target_metadata = db_config.metadata
 
 # set your url here or import from settings
 # note that by default url is in saved sqlachemy.url variable in alembic.ini file
-URL = db_url
+URL =  settings.db_url
 
 
 def run_migrations_offline():

@@ -2,7 +2,6 @@ from models import Session, User
 from models.types import SessionType
 from datetime import datetime, timedelta
 from secrets import token_urlsafe
-from core.controllers.utils.Base64 import encoder
 from fastapi.responses import JSONResponse
 
 

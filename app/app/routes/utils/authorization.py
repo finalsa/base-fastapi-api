@@ -1,5 +1,5 @@
 from models import Session, User
-from core.controllers.utils.Base64 import encoder
+from fastapi import encoder
 
 async def from_token(token):
     if len(token) % 4:

@@ -1,6 +1,6 @@
 import ormar as orm
-from .config import metadata, database
+from .config import db_config
 
 class MainMeta(orm.ModelMeta):
-    metadata = metadata
-    database = database
+    metadata = db_config.metadata
+    database = db_config.database

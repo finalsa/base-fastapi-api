@@ -1,5 +1,5 @@
 from models import Session
-from .utils import BaseCrud
+from fastapi_helpers import BaseCrud
 
 
 class SessionCrud(BaseCrud):
