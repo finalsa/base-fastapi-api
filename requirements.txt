@@ -20,7 +20,7 @@ greenlet==1.1.2
 h11==0.13.0
 idna==3.3
 jmespath==0.10.0
-Mako==1.1.6
+Mako==1.2.2
 MarkupSafe==2.1.0
 orjson==3.6.7
 ormar==0.10.24
