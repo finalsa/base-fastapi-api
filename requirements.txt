@@ -36,7 +36,7 @@ s3transfer==0.5.1
 six==1.16.0
 sniffio==1.2.0
 SQLAlchemy==1.4.29
-starlette==0.17.1
+starlette==0.25.0
 toml==0.10.2
 typing-extensions==3.10.0.2
 urllib3==1.26.8
